@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Managed Tasks";
+}
+
+<h3 class="welcome-header">Welcome to Steeltoe's Managed Tasks Hello World Demo!!</h3>
+
+<h4 class="tasks-header">Tasks available are:</h4>
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-1 col-md-offset-2">@item</div>
+    </div>
+}

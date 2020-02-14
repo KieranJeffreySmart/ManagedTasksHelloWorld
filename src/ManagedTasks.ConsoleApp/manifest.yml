@@ -1,0 +1,9 @@
+applications:
+- name: SteelToeManagedTasksConsole
+  memory: 2G
+  instances: 1
+  buildpack: dotnet_core_buildpack
+  command: cd ${HOME} && ./ManagedTasks.ConsoleApp runAsConsole=true
+  stack: cflinuxfs3
+  no-route: true
+  health-check-type: none

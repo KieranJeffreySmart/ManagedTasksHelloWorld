@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ManagedTasks.ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "runtask=SayHello"
+    }
+  }
+}

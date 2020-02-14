@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.1-dev-00142" />
+    <PackageReference Include="Steeltoe.Common.Hosting" Version="2.4.1" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.4.1" />
+    <PackageReference Include="Steeltoe.Extensions.Logging.DynamicLogger" Version="2.4.1" />
+    <PackageReference Include="Steeltoe.Extensions.Logging.SerilogDynamicLogger" Version="2.4.1" />
+    <PackageReference Include="Steeltoe.Management.CloudFoundryCore" Version="2.4.1" />
+    <PackageReference Include="Steeltoe.Management.TaskCore" Version="2.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManagedTasks\ManagedTasks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="lib\jquery-ui-bootstrap\assets\css\bootstrap.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="lib\jquery-ui-bootstrap\assets\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="manifest.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="manifest.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+</Project>

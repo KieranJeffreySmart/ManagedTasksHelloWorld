@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery-ui-bootstrap@0.5pre",
+      "destination": "lib/jquery-ui-bootstrap/"
+    }
+  ]
+}

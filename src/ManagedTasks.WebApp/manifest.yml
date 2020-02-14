@@ -1,0 +1,12 @@
+applications:
+- name: SteelToeManagedTasks
+  memory: 512M
+  instances: 1
+  buildpack: dotnet_core_buildpack
+  command: cd ${HOME} && ./ManagedTasks.WebApp
+  stack: cflinuxfs3
+  env:
+    SERILOG: '{ "MinimumLevel": { "Default": "Debug", "Override": { "Microsoft": "Warning", "CloudFoundry.Controllers": "Verbose" } }, "WriteTo": [{"Name": "Console", "Args": {"outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext}: {Properties} {NewLine} {EventId} {Message:lj}{NewLine}{Exception}" }}], "Enrich": ["FromLogContext", "WithMachineName", "WithThreadId" ]}'
+    MANAGEMENT: '{ "endpoints": { "path": "/cloudfoundryapplication", "cloudfoundry": { "validateCertificates": "false" } }, "metrics": { "exporter": { "cloudfoundry": { "validateCertificates": "false" }}}}'
+    ASPNETCORE_ENVIRONMENT: Development
+    LOGGING: '{ "IncludeScopes": "false", "LogLevel": { "Default": "Warning", "Pivotal": "Information", "Steeltoe": "Information" }, "Console": { "DisableColors": "true" }}'
